@@ -1,0 +1,17 @@
+﻿using System.Diagnostics;
+using MentorWebAppBackend.Data.Contexts;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MentorWebAppBackend.Controllers
+{
+    public class HomeController : Controller
+    {
+        private AppDbContext context = new AppDbContext();
+		public IActionResult Index()
+        {
+            var features = context.Features.ToList();
+			return View(features);
+        }
+
+    }
+}
