@@ -21,9 +21,9 @@ namespace EternaWebbApp
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 
-			app.MapControllerRoute(
-				name: "portfolio",
-				pattern: "{controller=Portfolio}/{action=Index}/{id?}");
+			//app.MapControllerRoute(
+			//	name: "portfolio",
+			//	pattern: "{controller=Portfolio}/{action=Index}/{id?}");
 			app.Run();
 		}
 	}
