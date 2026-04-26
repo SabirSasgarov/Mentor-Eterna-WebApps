@@ -1,3 +1,7 @@
+using EternaWebbApp.Data;
+using EternaWebbApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace EternaWebbApp
 {
 	public class Program
@@ -8,6 +12,10 @@ namespace EternaWebbApp
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+			builder.Services.AddDbContext<AppDbContext>(context =>
+				context.UseSqlServer("Server=.\\MSSQLSERVER01;Database=EternaDB;Trusted_Connection=True;Trust Server Certificate=True;")
+			);
+
 
 			var app = builder.Build();
 
@@ -21,9 +29,6 @@ namespace EternaWebbApp
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 
-			//app.MapControllerRoute(
-			//	name: "portfolio",
-			//	pattern: "{controller=Portfolio}/{action=Index}/{id?}");
 			app.Run();
 		}
 	}
