@@ -3,6 +3,7 @@ using EternaWebbApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EternaWebbApp.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426202915_mig5")]
+    partial class mig5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,27 +176,6 @@ namespace EternaWebbApp.Data.Migrations
                             Comment = "Highly recommended for modern web solutions.",
                             StarCount = 5m,
                             UserId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Comment = "Creative team with strong attention to detail.",
-                            StarCount = 4.5m,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Comment = "Professional, reliable, and easy to work with.",
-                            StarCount = 5m,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Comment = "Very satisfied with the final result and support.",
-                            StarCount = 4m,
-                            UserId = 6
                         });
                 });
 
@@ -373,27 +355,6 @@ namespace EternaWebbApp.Data.Migrations
                             FullName = "William Anderson",
                             ImageUrl = "testimonials-3.jpg",
                             Position = "CTO"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FullName = "Amanda Jepson",
-                            ImageUrl = "testimonials-4.jpg",
-                            Position = "Lead Designer"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FullName = "Saul Goodman",
-                            ImageUrl = "testimonials-5.jpg",
-                            Position = "Legal Advisor"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            FullName = "Jenna Karlis",
-                            ImageUrl = "testimonials-6.jpg",
-                            Position = "Store Owner"
                         });
                 });
 

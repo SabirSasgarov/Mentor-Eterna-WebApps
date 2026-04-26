@@ -3,6 +3,7 @@ using EternaWebbApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EternaWebbApp.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260426192815_mig4")]
+    partial class mig4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,75 +128,6 @@ namespace EternaWebbApp.Data.Migrations
                             Description = "Optimized architecture and code to ensure speed and reliability.",
                             Icon = "bi bi-speedometer2",
                             Title = "Fast Performance"
-                        });
-                });
-
-            modelBuilder.Entity("EternaWebbApp.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("StarCount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Reviews");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Comment = "Excellent service and very professional team.",
-                            StarCount = 5m,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Comment = "Great communication and timely delivery.",
-                            StarCount = 4.5m,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Comment = "Highly recommended for modern web solutions.",
-                            StarCount = 5m,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Comment = "Creative team with strong attention to detail.",
-                            StarCount = 4.5m,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Comment = "Professional, reliable, and easy to work with.",
-                            StarCount = 5m,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Comment = "Very satisfied with the final result and support.",
-                            StarCount = 4m,
-                            UserId = 6
                         });
                 });
 
@@ -326,91 +260,6 @@ namespace EternaWebbApp.Data.Migrations
                             Name = "Grow Your Business",
                             SubTitle = "Solutions for your success"
                         });
-                });
-
-            modelBuilder.Entity("EternaWebbApp.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Position")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FullName = "Walter White",
-                            ImageUrl = "testimonials-1.jpg",
-                            Position = "Chief Executive Officer"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FullName = "Sarah Johnson",
-                            ImageUrl = "testimonials-2.jpg",
-                            Position = "Product Manager"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FullName = "William Anderson",
-                            ImageUrl = "testimonials-3.jpg",
-                            Position = "CTO"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FullName = "Amanda Jepson",
-                            ImageUrl = "testimonials-4.jpg",
-                            Position = "Lead Designer"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FullName = "Saul Goodman",
-                            ImageUrl = "testimonials-5.jpg",
-                            Position = "Legal Advisor"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            FullName = "Jenna Karlis",
-                            ImageUrl = "testimonials-6.jpg",
-                            Position = "Store Owner"
-                        });
-                });
-
-            modelBuilder.Entity("EternaWebbApp.Models.Review", b =>
-                {
-                    b.HasOne("EternaWebbApp.Models.User", "User")
-                        .WithMany("Reviews")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("EternaWebbApp.Models.User", b =>
-                {
-                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }

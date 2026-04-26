@@ -1,26 +1,26 @@
 ﻿using EternaWebbApp.Data;
 using EternaWebbApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EternaWebbApp.Controllers
 {
-	public class PortfolioController : Controller
+	public class AboutController : Controller
 	{
 		private readonly AppDbContext _context;
 
-		public PortfolioController(AppDbContext context)
+		public AboutController(AppDbContext context)
 		{
 			_context = context;
 		}
 
 		public IActionResult Index()
 		{
-			PortfolioVM portfolioVM = new PortfolioVM
+			AboutVM aboutVM = new AboutVM
 			{
-				Clients = _context.Clients.ToList()
+				Users = _context.Users.Include(u=>u.Reviews).ToList()
 			};
-
-			return View(portfolioVM);
+			return View(aboutVM);
 		}
 	}
 }

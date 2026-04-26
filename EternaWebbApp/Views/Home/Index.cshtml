@@ -4,6 +4,7 @@
     var sliders = Model.Sliders;
     var features = Model.Features; 
     var services = Model.Services;
+    var clients = Model.Clients;
 }
    <!-- Hero Section -->
 <section id="hero" class="hero section">
@@ -152,14 +153,10 @@
                 }
             </script>
             <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-1.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-2.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-3.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-4.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-5.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-6.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-7.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-8.webp" class="img-fluid" alt=""></div>
+                @foreach(var item in clients)
+                {
+                <div class="swiper-slide"><img src="~/assets/img/clients/@item.ImageUrl" class="img-fluid" alt=""></div>
+                }    
             </div>
             <div class="swiper-pagination"></div>
         </div>

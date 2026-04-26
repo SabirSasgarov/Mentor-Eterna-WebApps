@@ -1,11 +1,17 @@
-﻿<!-- Page Title -->
+﻿@model PortfolioVM
+
+@{
+    var clients = Model.Clients;
+}
+
+<!-- Page Title -->
 <div class="page-title" data-aos="fade">
     <div class="container">
         <nav class="breadcrumbs">
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                 <li class="current">Portfolio</li>
-            </ol>
+            </ol>   
         </nav>
         <h1>Portfolio</h1>
     </div>
@@ -224,15 +230,11 @@
                 }
             </script>
             <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-1.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-2.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-3.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-4.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-5.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-6.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-7.webp" class="img-fluid" alt=""></div>
-                <div class="swiper-slide"><img src="~/assets/img/clients/clients-8.webp" class="img-fluid" alt=""></div>
-            </div>
+                @foreach(var client in clients)
+                {
+                    <div class="swiper-slide"><img src="~/assets/img/clients/@client.ImageUrl" class="img-fluid" alt=""></div>
+                }
+                </div>
             <div class="swiper-pagination"></div>
         </div>
 

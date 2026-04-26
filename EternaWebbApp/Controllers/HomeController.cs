@@ -21,7 +21,8 @@ namespace EternaWebbApp.Controllers
 			{
 				Sliders = _context.Sliders.ToList(),
 				Features = _context.Features.ToList(),
-				Services = _context.Services.ToList()
+				Services = _context.Services.ToList(),
+				Clients = _context.Clients.ToList()
 			};
 			return View(homeVM);
 		}
